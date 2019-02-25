@@ -3,7 +3,7 @@ package com.revolvingbunnies;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class FooTest {
+public class ApplicationTest {
 
     @Test
     public void thisShouldPass() {
