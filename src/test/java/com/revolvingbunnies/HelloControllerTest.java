@@ -36,6 +36,7 @@ public class HelloControllerTest {
         // expect a 200
         // expect some text content like "Service is up"
         mvc.perform(MockMvcRequestBuilders.get("/health").accept(MediaType.APPLICATION_JSON))
-            .andExpect(status().isOk());
+            .andExpect(status().isOk())
+            .andExpect(content().string(equalTo("Service is up!")));
     }
 }

@@ -10,4 +10,9 @@ public class HelloController {
   public String index() {
     return "Greetings from MY bunny, Wolfie!";
   }
+
+  @RequestMapping("/health")
+    public String getHealth() {
+      return "Service is up!";
+  }
 }
