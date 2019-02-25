@@ -3,16 +3,29 @@ package com.revolvingbunnies;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @RestController
 public class HelloController {
 
-  @RequestMapping("/")
-  public String index() {
-    return "Greetings from MY bunny, Wolfie!";
-  }
+    private final CustomerService customerService;
 
-  @RequestMapping("/health")
+    public HelloController(CustomerService customerService) {
+        this.customerService = customerService;
+    }
+
+    @RequestMapping("/")
+    public String index() {
+        return "Greetings from MY bunny, Wolfie!";
+    }
+
+    @RequestMapping("/health")
     public String getHealth() {
-      return "Service is up!";
-  }
+        return "Service is up!";
+    }
+
+    @RequestMapping("/customers")
+    public List<Customer> customers() {
+        return customerService.lookup();
+    }
 }
