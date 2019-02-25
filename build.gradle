@@ -29,6 +29,7 @@ dependencies {
   implementation("org.springframework.boot:spring-boot-starter-web")
   testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0'
   testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
+  testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 test {
