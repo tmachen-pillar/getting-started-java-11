@@ -32,16 +32,13 @@ public class HelloControllerIntegrationTest {
 
     @Test
     public void getHealth() throws Exception {
-        // Make a GET call to /health
-        // expect a 200
-        // expect some text content like "Service is up"
         mvc.perform(MockMvcRequestBuilders.get("/health").accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
             .andExpect(content().string(equalTo("Service is up!")));
     }
 
     @Test
-    public void getCustomers() throws Exception {
+    public void getCustomersReturnsOk() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/customers").accept(MediaType.APPLICATION_JSON))
             .andExpect((status().isOk()));
     }
