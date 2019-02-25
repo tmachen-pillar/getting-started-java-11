@@ -29,4 +29,13 @@ public class HelloControllerTest {
             .andExpect(status().isOk())
             .andExpect(content().string(equalTo("Greetings from MY bunny, Wolfie!")));
     }
+
+    @Test
+    public void getHealth() throws Exception {
+        // Make a GET call to /health
+        // expect a 200
+        // expect some text content like "Service is up"
+        mvc.perform(MockMvcRequestBuilders.get("/health").accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk());
+    }
 }
