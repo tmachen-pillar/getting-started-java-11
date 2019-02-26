@@ -10,21 +10,21 @@ import static org.mockito.Mockito.*;
 
 public class HelloControllerTest {
     @Test
-    public void customersCallsLookup() {
+    public void customersCallsFindByLastName() {
         CustomerService service = mock(CustomerService.class);
         HelloController controller = new HelloController(service);
 
         controller.customers();
-        verify(service).lookup();
+        verify(service).findByLastName(any());
     }
 
     @Test
-    public void customersReturnsAListOfCustomers() {
+    public void customersReturnsAListOfCustomersByLastName() {
         CustomerService service = mock(CustomerService.class);
         List<Customer> customers = new ArrayList<>();
         Customer customer = new Customer();
         customers.add(customer);
-        when(service.lookup()).thenReturn(customers);
+        when(service.findByLastName(any())).thenReturn(customers);
 
         HelloController controller = new HelloController(service);
 

@@ -15,7 +15,7 @@ class CustomerServiceTest {
     void shouldCallFindByLastName() {
         CustomerRepository repo = mock(CustomerRepository.class);
         CustomerService service = new CustomerService(repo);
-        service.lookup();
+        service.findByLastName("");
         verify(repo).findByLastName(any());
     }
 
@@ -23,7 +23,7 @@ class CustomerServiceTest {
     public void shouldReturnEmptyListOfCustomersWhenFindByLastNameCalled() {
         CustomerRepository repo = mock(CustomerRepository.class);
         CustomerService service = new CustomerService(repo);
-        List<Customer> customers = service.lookup();
+        List<Customer> customers = service.findByLastName("");
         Assert.assertEquals(new ArrayList<Customer>(), customers);
     }
 
@@ -36,7 +36,7 @@ class CustomerServiceTest {
         when(repo.findByLastName(any())).thenReturn(expectedCustomers);
 
         CustomerService service = new CustomerService(repo);
-        List<Customer> customers = service.lookup();
+        List<Customer> customers = service.findByLastName("");
         Assert.assertEquals(1, customers.size());
     }
 }

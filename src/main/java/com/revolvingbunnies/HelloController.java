@@ -3,6 +3,7 @@ package com.revolvingbunnies;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -26,6 +27,7 @@ public class HelloController {
 
     @RequestMapping("/customers")
     public List<Customer> customers() {
-        return customerService.lookup();
+//        return customerService.findAll();
+        return customerService.findByLastName("Elliott");
     }
 }
