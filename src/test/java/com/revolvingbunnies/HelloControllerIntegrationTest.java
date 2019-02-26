@@ -46,11 +46,23 @@ public class HelloControllerIntegrationTest {
     @Test
     public void getCustomersReturnsACustomer() throws Exception {
         Customer customer = new Customer("Anthony", "Elliott");
-        Assertions.assertNotNull(customerRepository);
         customerRepository.save(customer);
 
         mvc.perform(MockMvcRequestBuilders.get("/customers").accept(MediaType.APPLICATION_JSON))
             .andExpect((status().isOk()))
             .andExpect(content().string(Matchers.containsString("Anthony")));
+    }
+
+    @Test
+    public void getCustomersReturnsCustomersThatMatchGivenLastName() throws Exception {
+        Customer customer = new Customer("Tori", "Machen");
+        customerRepository.save(customer);
+
+        Customer anthony = new Customer("Anthony", "Elliott");
+        customerRepository.save(anthony);
+
+        mvc.perform(MockMvcRequestBuilders.get("/customers").accept(MediaType.APPLICATION_JSON))
+            .andExpect((status().isOk()))
+            .andExpect(content().string(Matchers.containsString(customer.getLastName())));
     }
 }

@@ -26,7 +26,7 @@ public class HelloController {
     }
 
     @RequestMapping("/customers")
-    public List<Customer> customers() {
+    public List<Customer> customers(String lastName) {
 //        return customerService.findAll();
         return customerService.findByLastName("Elliott");
     }
