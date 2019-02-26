@@ -18,17 +18,17 @@ public class HelloControllerTest {
         verify(service).lookup();
     }
 
-    @Test
-    public void customersReturnsAListOfCustomers() {
-        CustomerService service = mock(CustomerService.class);
-        List<Customer> customers = new ArrayList<>();
-        Customer customer = new Customer();
-        customers.add(customer);
-        when(service.lookup()).thenReturn(customers);
-
-        HelloController controller = new HelloController(service);
-
-        List<Customer> actualCustomers = controller.customers();
-        Assert.assertEquals(1, actualCustomers.size());
-    }
+//    @Test
+//    public void customersReturnsAListOfCustomers() {
+//        CustomerService service = mock(CustomerService.class);
+//        List<Customer> customers = new ArrayList<>();
+//        Customer customer = new Customer();
+//        customers.add(customer);
+//        when(service.lookup()).thenReturn(customers);
+//
+//        HelloController controller = new HelloController(service);
+//
+//        List<Customer> actualCustomers = controller.customers();
+//        Assert.assertEquals(1, actualCustomers.size());
+//    }
 }

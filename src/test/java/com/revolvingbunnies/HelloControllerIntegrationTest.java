@@ -1,6 +1,6 @@
 package com.revolvingbunnies;
 
-import org.junit.jupiter.api.Assertions;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +40,7 @@ public class HelloControllerIntegrationTest {
     @Test
     public void getCustomersReturnsOk() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/customers").accept(MediaType.APPLICATION_JSON))
-            .andExpect((status().isOk()));
+            .andExpect((status().isOk()))
+            .andExpect(content().string(Matchers.containsString("Tori")));
     }
 }
