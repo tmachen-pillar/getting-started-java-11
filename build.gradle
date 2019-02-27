@@ -40,6 +40,7 @@ test {
     logger.lifecycle("${descriptor}")
   }
   testLogging {
+    events "passed", "skipped", "failed"
     exceptionFormat = 'full'
   }
   useJUnitPlatform()
