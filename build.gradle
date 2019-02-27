@@ -39,5 +39,8 @@ test {
   beforeTest { descriptor ->
     logger.lifecycle("${descriptor}")
   }
+  testLogging {
+    exceptionFormat = 'full'
+  }
   useJUnitPlatform()
 }
