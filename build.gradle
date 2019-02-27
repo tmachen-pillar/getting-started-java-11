@@ -43,5 +43,13 @@ test {
     events "passed", "skipped", "failed"
     exceptionFormat = 'full'
   }
+  afterSuite { desc, result ->
+    // Match the outermost suite
+    if (!desc.parent) {
+      println "Tests run: ${result.testCount}, \
+      Failures: ${result.failedTestCount}, \
+      Skipped: ${result.skippedTestCount}"
+    }
+  }
   useJUnitPlatform()
 }
